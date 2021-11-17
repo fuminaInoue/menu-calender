@@ -1,5 +1,7 @@
 import './App.css';
 import React, { useState,useEffect } from 'react'
+import { BrowserRouter as Router, Routes,Route } from 'react-router-dom'
+import {Index} from 'components/pages'
 
 function App() {
   const [message, setMessage] = useState('');
@@ -9,9 +11,11 @@ function App() {
       .then((data) => setMessage(data.message));
   },[])
   return (
-    <div>
-      <p>{ message }</p>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Index />} />
+      </Routes>
+    </Router>
   );
 }
 
